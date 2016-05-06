@@ -386,7 +386,7 @@ void PaintForwardSearchMark(WindowInfo *win, HDC hdc)
 // returns true if the double-click was handled and false if it wasn't
 bool OnInverseSearch(WindowInfo *win, int x, int y)
 {
-    if (!HasPermission(Perm_DiskAccess) || gPluginMode) return false;
+    if (!HasPermission(Perm_DiskAccess)) return false; // || gPluginMode)
     TabInfo *tab = win->currentTab;
     if (!tab || tab->GetEngineType() != Engine_PDF) return false;
     DisplayModel *dm = tab->AsFixed();
